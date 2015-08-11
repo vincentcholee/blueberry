@@ -7,7 +7,7 @@ Maintainer: Vincent Lee Email: vincentcholee@gmail.com
 
 How to activate laser____________________________________________________________________________
 1. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
-2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/hokuyo_test.launch OR $ roslaunch hokuyo_test hokuyo_test.launch
+2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch hokuyo_test my_robot_configuration.launch
 3. in new terminal: $ roscore
 4. in new terminal: $ rosrun rviz rviz
 5. global options -> fixed frame (set to /base_laser) **uncheck and check the box next to laserscan if not working**
@@ -42,11 +42,6 @@ If package cannot be found but has worked previously____________________________
 
 1. $ source devel/setup.bash
 
-How to compile the odometry, tf and laser_____________________________________________________________
-
-1. $ rosmake chapter7_tutorials (for odometry)
-2. $ cd hokuyo_exp
-3. $ catkin_make (for laser and tf)
 
  
 
