@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/drrobot2/hokuyo_exp/src/blueberry_odom/src/base_controller.cpp
+ros/ros.h
+-
+sensor_msgs/JointState.h
+-
+tf/transform_broadcaster.h
+-
+nav_msgs/Odometry.h
+-
+iostream
+-
+

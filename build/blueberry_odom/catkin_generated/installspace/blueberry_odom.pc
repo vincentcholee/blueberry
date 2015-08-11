@@ -1,0 +1,8 @@
+prefix=/home/drrobot2/hokuyo_exp/install
+
+Name: blueberry_odom
+Description: Description of blueberry_odom
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/drrobot2/hokuyo_exp/install/lib 
+Requires: 

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "hokuyo_test")
+set(hokuyo_test_MAINTAINER "drrobot2 <drrobot2@todo.todo>")
+set(hokuyo_test_DEPRECATED "")
+set(hokuyo_test_VERSION "0.0.0")
+set(hokuyo_test_BUILD_DEPENDS "diagnostic_updater" "driver_base" "dynamic_reconfigure" "rosconsole" "roscpp" "self_test" "sensor_msgs")
+set(hokuyo_test_RUN_DEPENDS "diagnostic_updater" "driver_base" "dynamic_reconfigure" "rosconsole" "roscpp" "self_test" "sensor_msgs")
+set(hokuyo_test_BUILDTOOL_DEPENDS "catkin")

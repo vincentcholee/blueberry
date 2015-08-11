@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/drrobot2/hokuyo_exp/src/blueberry_odom/src/laser.cpp
+ros/ros.h
+-
+sensor_msgs/LaserScan.h
+-
+

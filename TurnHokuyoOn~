@@ -1,0 +1,13 @@
+How to get laser working
+1. open roscore
+2. in new terminal: sudo chmod a+rw /dev/ttyACM0
+3. roslaunch hokuyo_exp/src/hokuyo_test/launch/hokuyo_test.launch OR roslaunch hokuyo_exp hokuyo_test.launch
+4. in new terminal: rosrun rviz rviz
+5. global options -> fixed frame (set to /laser)
+6. add laserscan -> topic (set to /scan)
+
+Mapping
+1. rosbag record -O mylaserdata /scan /tf (subscribes to /scan and /transform); default file size is 4kb
+
+ 
+

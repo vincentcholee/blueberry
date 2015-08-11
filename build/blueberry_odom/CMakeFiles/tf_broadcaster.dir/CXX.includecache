@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/drrobot2/hokuyo_exp/src/blueberry_odom/src/tf_broadcaster.cpp
+ros/ros.h
+-
+tf/transform_broadcaster.h
+-
+

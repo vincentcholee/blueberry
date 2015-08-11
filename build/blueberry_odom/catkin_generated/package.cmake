@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "blueberry_odom")
+set(blueberry_odom_MAINTAINER "Ivana Bildbotz <ivana@osrf.org>")
+set(blueberry_odom_DEPRECATED "")
+set(blueberry_odom_VERSION "0.0.0")
+set(blueberry_odom_BUILD_DEPENDS "roscpp" "tf" "laser_geometry")
+set(blueberry_odom_RUN_DEPENDS "roscpp" "tf" "laser_geometry")
+set(blueberry_odom_BUILDTOOL_DEPENDS "catkin")

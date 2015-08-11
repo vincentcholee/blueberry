@@ -1,0 +1,15 @@
+How to compile the odometry, tf and laser_____________________________________________________________
+
+1. $ rosmake chapter7_tutorials (for odometry)
+2. $ cd hokuyo_exp
+3. $ catkin_make (for laser and tf)
+How to view tf frames___________________________________________________________________________________
+
+1. $ rosrun tf view_frames
+2. $ evince frames.pdf OR rosrun rqt_graph rqt_graph
+
+If package cannot be found but has worked previously_____________________________________________
+
+1. $ source devel/setup.bash
+
+

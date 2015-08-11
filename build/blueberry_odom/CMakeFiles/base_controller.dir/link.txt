@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/base_controller.dir/src/base_controller.cpp.o  -o /home/drrobot2/hokuyo_exp/devel/lib/blueberry_odom/base_controller -rdynamic 

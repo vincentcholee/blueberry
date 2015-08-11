@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/drrobot2/hokuyo_exp/src/blueberry_odom/build/devel/setup.sh

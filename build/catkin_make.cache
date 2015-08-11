@@ -1,0 +1,2 @@
+hokuyo_test
+-DCATKIN_DEVEL_PREFIX=/home/drrobot2/hokuyo_exp/devel -DCMAKE_INSTALL_PREFIX=/home/drrobot2/hokuyo_exp/install -G Unix Makefiles

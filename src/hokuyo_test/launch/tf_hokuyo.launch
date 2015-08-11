@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find hokuyo_exp)/launch/robot_setup_tf.launch"/>
+<include file="$(find hokuyo_exp)/launch/hokuyo_test.launch"/>
+
+</launch>

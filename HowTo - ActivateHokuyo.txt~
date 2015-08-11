@@ -1,0 +1,52 @@
+Maintainer: Vincent Lee Email: vincentcholee@gmail.com
+
+***BEFORE STARTING ANYTHING: DriClinic-1 and turn robot ON before starting***
+1. Connect to DriClinic-1 (wireless connection)
+2. Turn off and disconnect the charger
+3. Turn the robot ON (blue light on robot)
+
+How to activate laser____________________________________________________________________________
+1. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
+2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/hokuyo_test.launch OR $ roslaunch hokuyo_test hokuyo_test.launch
+3. in new terminal: $ roscore
+4. in new terminal: $ rosrun rviz rviz
+5. global options -> fixed frame (set to /base_laser) **uncheck and check the box next to laserscan if not working**
+6. add laserscan -> topic (set to /scan)
+
+How to map_______________________________________________________________________________________
+
+1. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
+2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch hokuyo_test my_robot_configuration.launch
+3. in new terminal: $ rosbag record -O mylaserdata /scan /tf (subscribes to /scan and /transform); default file size is 4kb
+
+Walk with the robot (or teleoprate it) through the environment. When you're done press ctrl+c to kill the process. Kill the rosbag terminal first. Close all terminals. 
+
+4. in new terminal: $ roscore
+5. in a new terminal run:$ rosparam set use_sim_time true
+$  $ rosrun gmapping slam_gmapping scan:=scan
+6. in a new terminal run:$ rosparam set use_sim_time true 
+7. $ rosbag play mylaserdata.bag OR $ rosbag play --clock mylaserdata.bag (wait to finish)
+8. $ rosrun map_server map_saver
+
+Close all terminals.
+
+
+Cut the resulting files (map.pgm, map.yaml, and mylaserdata.bag) from the /home folder and past in  /home/ros/sandbox/drrobot_navigation/maps
+
+How to view tf frames___________________________________________________________________________________
+
+1. $ rosrun tf view_frames
+2. $ evince frames.pdf OR rosrun rqt_graph rqt_graph
+
+If package cannot be found but has worked previously_____________________________________________
+
+1. $ source devel/setup.bash
+
+How to compile the odometry, tf and laser_____________________________________________________________
+
+1. $ rosmake chapter7_tutorials (for odometry)
+2. $ cd hokuyo_exp
+3. $ catkin_make (for laser and tf)
+
+ 
+

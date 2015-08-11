@@ -1,0 +1,8 @@
+prefix=/home/drrobot2/hokuyo_exp/devel
+
+Name: hokuyo_test
+Description: Description of hokuyo_test
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/drrobot2/hokuyo_exp/devel/lib 
+Requires: 

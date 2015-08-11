@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>blueberry_odom</name>
+  <version>0.0.0</version>
+  <description>The blueberry package</description>
+  <maintainer email="ivana@osrf.org">Ivana Bildbotz</maintainer>
+  <author>Aaron Martinez, Enrique Fernández</author>
+  <license>GPL</license>
+  <url>http://www.packtpub.com/learning-ros-for-robotics-programming/book</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>laser_geometry</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>laser_geometry</run_depend>
+</package>
