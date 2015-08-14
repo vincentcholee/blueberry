@@ -1,0 +1,21 @@
+#include <string>
+#include <ros/ros.h>
+#include <sensor_msgs/JointState.h>
+#include <tf/transform_broadcaster.h>
+#include <nav_msgs/Odometry.h>
+#include <drrobot_clinicrobot/RobotSystemData.h>
+
+int main(int argc, char** argv) {
+
+	ros::init(argc, argv, "state_publisher");
+	ros::NodeHandle n;
+	ros::Publisher robotSystemData_pub = n.advertise<drrobot_clinicrobot::RobotSystemData>("drrobot_clinicrobot_systemdata",1);
+	drrobot_clinicrobot::RobotSystemData robotSystemData;
+
+	double x = robotSystemData.robot_x; 
+	double y = robotSystemData.robot_y;
+
+	robotSystemData_pub_.publish(robotSystemData);
+
+return 0;
+}

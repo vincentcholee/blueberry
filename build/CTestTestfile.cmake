@@ -6,3 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 SUBDIRS(gtest)
 SUBDIRS(hokuyo_test)
+SUBDIRS(drrobot_clinicrobot)
+SUBDIRS(robot_setup_tf)

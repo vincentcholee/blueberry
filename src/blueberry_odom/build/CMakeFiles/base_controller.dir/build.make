@@ -101,6 +101,7 @@ CMakeFiles/base_controller.dir/src/base_controller.cpp.o: /opt/ros/indigo/share/
 CMakeFiles/base_controller.dir/src/base_controller.cpp.o: /opt/ros/indigo/share/tf/package.xml
 CMakeFiles/base_controller.dir/src/base_controller.cpp.o: /opt/ros/indigo/share/angles/package.xml
 CMakeFiles/base_controller.dir/src/base_controller.cpp.o: /opt/ros/indigo/share/laser_geometry/package.xml
+CMakeFiles/base_controller.dir/src/base_controller.cpp.o: /opt/ros/indigo/share/nav_msgs/package.xml
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/drrobot2/hokuyo_exp/src/blueberry_odom/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/base_controller.dir/src/base_controller.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/base_controller.dir/src/base_controller.cpp.o -c /home/drrobot2/hokuyo_exp/src/blueberry_odom/src/base_controller.cpp

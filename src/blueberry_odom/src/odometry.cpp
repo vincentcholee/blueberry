@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 	last_time = ros::Time::now();
 
 	tf::TransformBroadcaster broadcaster;
-	ros::Rate loop_rate(20);
+	ros::Rate loop_rate(10);
 
 	const double degree = M_PI/180;
 

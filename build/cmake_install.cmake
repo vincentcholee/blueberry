@@ -118,6 +118,8 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/home/drrobot2/hokuyo_exp/build/gtest/cmake_install.cmake")
   INCLUDE("/home/drrobot2/hokuyo_exp/build/hokuyo_test/cmake_install.cmake")
+  INCLUDE("/home/drrobot2/hokuyo_exp/build/drrobot_clinicrobot/cmake_install.cmake")
+  INCLUDE("/home/drrobot2/hokuyo_exp/build/robot_setup_tf/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

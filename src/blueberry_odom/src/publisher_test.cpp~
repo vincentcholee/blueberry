@@ -1,0 +1,19 @@
+#include <string>
+#include <iostream>
+#include <ros/ros.h>
+#include <sensor_msgs/JointState.h>
+#include <tf/transform_broadcaster.h>
+#include <nav_msgs/Odometry.h>
+#include <drrobot_clinicrobot/RobotSystemData.h>
+
+int main(int argc, char** argv) {
+
+drrobot_clinicrobot::RobotSystemData robotSystemData;
+
+double x = robotSystemData.robot_x; 
+
+cout << x;
+
+return 0;
+
+}

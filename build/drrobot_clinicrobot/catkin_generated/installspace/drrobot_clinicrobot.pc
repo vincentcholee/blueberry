@@ -1,0 +1,8 @@
+prefix=/home/drrobot2/hokuyo_exp/install
+
+Name: drrobot_clinicrobot
+Description: Description of drrobot_clinicrobot
+Version: 1.0.1
+Cflags: -I/home/drrobot2/hokuyo_exp/install/include
+Libs: -L/home/drrobot2/hokuyo_exp/install/lib 
+Requires: roscpp rospy std_msgs message_runtime

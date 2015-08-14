@@ -5,15 +5,15 @@ Maintainer: Vincent Lee Email: vincentcholee@gmail.com
 2. Turn off and disconnect the charger
 3. Turn the robot ON (blue light on robot)
 
-How to activate laser____________________________________________________________________________
+How to activate laser (official)_________________________________________________________________
 1. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
-2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch hokuyo_test my_robot_configuration.launch
+2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/hokuyo_test.launch OR $ roslaunch hokuyo_test hokuyo_test.launch
 3. in new terminal: $ roscore
 4. in new terminal: $ rosrun rviz rviz
 5. global options -> fixed frame (set to /base_laser) **uncheck and check the box next to laserscan if not working**
 6. add laserscan -> topic (set to /scan)
 
-How to map_______________________________________________________________________________________
+How to map (outdated - do not follow)____________________________________________________________
 
 1. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
 2. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch hokuyo_test my_robot_configuration.launch

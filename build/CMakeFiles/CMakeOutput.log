@@ -291,3 +291,32 @@ Linking C executable cmTryCompileExec2010945704
 make[1]: Leaving directory `/home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec395142556/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec395142556.dir/build.make CMakeFiles/cmTryCompileExec395142556.dir/build
+make[1]: Entering directory `/home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec395142556.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec395142556.dir/CheckSymbolExists.cxx.o -c /home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTryCompileExec395142556
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec395142556.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTryCompileExec395142556.dir/CheckSymbolExists.cxx.o  -o cmTryCompileExec395142556 -rdynamic 
+make[1]: Leaving directory `/home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp'
+
+File /home/drrobot2/hokuyo_exp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

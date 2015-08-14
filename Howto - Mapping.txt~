@@ -1,0 +1,43 @@
+Maintainer: Calvin Ossai & Vincent Lee Email: calvin.ossai@mail.utoronto.ca & vincentc.lee@mail.utoronto.ca
+
+***BEFORE STARTING ANYTHING:***
+1. Connect to DriClinic-1 (wireless connection)
+2. Turn off and disconnect the charger
+3. Turn the robot ON (blue light on robot)
+
+How to map_______________________________________________________________________________________
+1. in new terminal: $ roscore
+2. in new terminal: $ rosrun drrobot_clinicrobot drrobot_clinicrobot_node
+3. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
+4. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch my_robot_configuration.launch
+5. in new terminal: $ rosbag record -O mylaserdata /scan /tf
+
+Walk with the robot (or teleoprate it) through the environment. When you're done press ctrl+c to kill the process. Kill the rosbag terminal first. Close all terminals. 
+
+6. in new terminal: $ roscore
+7. in a new terminal run:$ rosparam set use_sim_time true
+$  $ rosrun gmapping slam_gmapping scan:=scan
+8. in a new terminal run:$ rosparam set use_sim_time true 
+9. $ rosbag play --clock mylaserdata.bag (wait to finish)
+10. $ rosrun map_server map_saver
+
+Close all terminals.
+
+Cut the resulting files (map.pgm, map.yaml, and mylaserdata.bag) from the /home folder and past in  /home/ros/sandbox/drrobot_navigation/maps
+
+Checking if odom works___________________________________________________________________________
+1. in new terminal: $ rosrun rviz rviz
+2. in rviz: set 'Fixed Frame' to 'odom' under the 'Global Options' tab
+3. go to 'Add'--> 'By topic' tab --> /Odometry --> click 'OK'
+4. go to 'Add'--> 'By topic' tab --> /LaserScan --> click 'OK'
+4. go to 'Add'--> 'By topic' tab --> /Pose --> click 'OK'
+5. go to 'Add'--> 'By display type' tab --> TF --> click 'OK'
+(to remove the USsensors: go under 'TF' tab --> 'Frames' --> uncheck All Enabled --> check 'base_link','laser' and 
+
+How to view tf frames____________________________________________________________________________
+1. $ rosrun tf view_frames
+2. $ evince frames.pdf OR rosrun rqt_graph rqt_graph
+
+If package cannot be found but has worked previously_____________________________________________
+
+1. $ source devel/setup.bash

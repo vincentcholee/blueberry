@@ -1,0 +1,17 @@
+-I/usr/include/qt4
+-I/usr/include/qt4/QtGui
+-I/usr/include/qt4/QtXml
+-I/usr/include/qt4/QtNetwork
+-I/usr/include/qt4/QtCore
+-I/home/drrobot2/hokuyo_exp/build/drrobot_clinicrobot
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="drrobot_clinicrobot"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-DQT_NO_DEBUG
+-DQT_GUI_LIB
+-DQT_XML_LIB
+-DQT_NETWORK_LIB
+-DQT_CORE_LIB
+-o
+/home/drrobot2/hokuyo_exp/build/drrobot_clinicrobot/include/drrobot_clinicrobot/moc_drrobotsensormapbuildhelper.cxx
+/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/include/drrobot_clinicrobot/drrobotsensormapbuildhelper.hpp
