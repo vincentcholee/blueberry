@@ -1,2 +1,2 @@
-drrobot_clinicrobot:hokuyo_test:robot_setup_tf
+amcl:drrobot_clinicrobot:hokuyo_test:robot_setup_tf:urdf_tutorial
 -DCATKIN_DEVEL_PREFIX=/home/drrobot2/hokuyo_exp/devel -DCMAKE_INSTALL_PREFIX=/home/drrobot2/hokuyo_exp/install -G Unix Makefiles

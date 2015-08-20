@@ -1,0 +1,8 @@
+prefix=/home/drrobot2/hokuyo_exp/install
+
+Name: amcl
+Description: Description of amcl
+Version: 1.13.0
+Cflags: -I/home/drrobot2/hokuyo_exp/install/include
+Libs: -L/home/drrobot2/hokuyo_exp/install/lib -lamcl_sensors -lamcl_map -lamcl_pf
+Requires: roscpp dynamic_reconfigure tf

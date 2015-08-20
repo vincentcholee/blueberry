@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "urdf_tutorial")
+set(urdf_tutorial_MAINTAINER "David V. Lu!! <davidvlu@gmail.com>")
+set(urdf_tutorial_DEPRECATED "")
+set(urdf_tutorial_VERSION "0.2.4")
+set(urdf_tutorial_BUILD_DEPENDS "roslaunch")
+set(urdf_tutorial_RUN_DEPENDS "controller_manager" "diff_drive_controller" "gazebo_ros" "joint_state_controller" "joint_state_publisher" "position_controllers" "pr2_description" "robot_state_publisher" "rqt_robot_steering" "rviz" "urdf" "xacro")
+set(urdf_tutorial_BUILDTOOL_DEPENDS "catkin")

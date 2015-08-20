@@ -882,11 +882,29 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//Path to a file.
+_file_name:FILEPATH=/home/drrobot2/hokuyo_exp/src/amcl/test/texas_willow_hallway_loop.xml
+
 //The directory containing a CMake configuration file for actionlib.
 actionlib_DIR:PATH=/opt/ros/indigo/share/actionlib/cmake
 
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/indigo/share/actionlib_msgs/cmake
+
+//Value Computed by CMake
+amcl_BINARY_DIR:STATIC=/home/drrobot2/hokuyo_exp/build/amcl
+
+//Value Computed by CMake
+amcl_SOURCE_DIR:STATIC=/home/drrobot2/hokuyo_exp/src/amcl
+
+//Dependencies for target
+amcl_map_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+amcl_pf_LIB_DEPENDS:STATIC=
+
+//Dependencies for the target
+amcl_sensors_LIB_DEPENDS:STATIC=general;amcl_map;general;amcl_pf;
 
 //Value Computed by CMake
 blueberry_odom_BINARY_DIR:STATIC=/home/drrobot2/hokuyo_exp/build/blueberry_odom
@@ -979,6 +997,9 @@ message_generation_DIR:PATH=/opt/ros/indigo/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/indigo/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/indigo/share/nav_msgs/cmake
+
 //The directory containing a CMake configuration file for navs_msgs.
 navs_msgs_DIR:PATH=navs_msgs_DIR-NOTFOUND
 
@@ -1006,8 +1027,14 @@ rosgraph_DIR:PATH=/opt/ros/indigo/share/rosgraph/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/indigo/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/indigo/share/roslaunch/cmake
+
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/indigo/share/rospy/cmake
+
+//The directory containing a CMake configuration file for rostest.
+rostest_DIR:PATH=/opt/ros/indigo/share/rostest/cmake
 
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/indigo/share/rostime/cmake
@@ -1044,6 +1071,12 @@ tf_DIR:PATH=/opt/ros/indigo/share/tf/cmake
 
 //The directory containing a CMake configuration file for trajectory_msgs.
 trajectory_msgs_DIR:PATH=/opt/ros/indigo/share/trajectory_msgs/cmake
+
+//Value Computed by CMake
+urdf_tutorial_BINARY_DIR:STATIC=/home/drrobot2/hokuyo_exp/build/urdf_tutorial
+
+//Value Computed by CMake
+urdf_tutorial_SOURCE_DIR:STATIC=/home/drrobot2/hokuyo_exp/src/urdf_tutorial
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/indigo/share/xmlrpcpp/cmake
@@ -1160,7 +1193,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=5
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -8,7 +8,9 @@ Maintainer: Calvin Ossai & Vincent Lee Email: calvin.ossai@mail.utoronto.ca & vi
 How to map_______________________________________________________________________________________
 1. in new terminal: $ roscore
 2. in new terminal: $ rosrun drrobot_clinicrobot drrobot_clinicrobot_node
-3. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
+3. in the QT gui: connect all 4 ports (sensor numbers will fluctuate if robot is connected properly)
+3. in the QT gui: check off the boxes next to 'Start Publish', 'Start ReceiveCmd' & 'Display ROS Msg'
+4. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
 4. $ roslaunch hokuyo_exp/src/hokuyo_test/launch/my_robot_configuration.launch OR $ roslaunch my_robot_configuration.launch
 5. in new terminal: $ rosbag record -O mylaserdata /scan /tf
 

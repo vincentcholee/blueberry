@@ -7,4 +7,6 @@
 SUBDIRS(gtest)
 SUBDIRS(hokuyo_test)
 SUBDIRS(drrobot_clinicrobot)
+SUBDIRS(amcl)
 SUBDIRS(robot_setup_tf)
+SUBDIRS(urdf_tutorial)

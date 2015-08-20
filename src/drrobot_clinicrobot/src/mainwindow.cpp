@@ -2256,7 +2256,7 @@ void MainWindow::patrolStart()
         // Load xml file as raw data
         QString homePath = QDir::homePath();
 
-        QFile f(homePath + "/DrRobotClinicPathFile/patrol.xml");
+        QFile f(homePath + "/DrRobotClinicPathFile/patrol2.xml"); //changed from patrol.xml (patrol2.xml made by Vincent)
         if (!f.open(QIODevice::ReadOnly ))
         {
             return;

@@ -2,7 +2,7 @@
 <launch>
 <!-- sensor information - hokuyo node -->
   <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
-		<param name="frame_id" type="str" value="/base_laser"/>   
+		<param name="frame_id" type="str" value="/laser"/>   
     		<!-- Starts up faster, but timestamps will be inaccurate. --> 
     		<param name="calibrate_time" type="bool" value="false"/> 
     		<!-- Set the port to connect to here -->
@@ -20,7 +20,10 @@
 <!-- odometry, transform and control base -->
 	<node pkg="robot_setup_tf" name="tf_broadcaster" type="tf_broadcaster" output="screen"/>
 
-<!--transform configuration-->
-	<!--node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.18 0 0.35 0 0 0 /base_link /laser 100" /-->
+<!-- blueberry robot model -->
+	<include file="$(find urdf_tutorial)/launch/blueberry_model.launch" />
+
+<!-- drrobot_clinicrobot node -->
+	<!-- <node pkg="drrobot_clinicrobot" name="drrobot_clinicrobot_node" type="drrobot_clinicrobot_node" output="screen"/> -->
 
 </launch>

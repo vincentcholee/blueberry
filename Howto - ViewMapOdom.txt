@@ -1,0 +1,18 @@
+Maintainer: Calvin Ossai & Vincent Lee Email: calvin.ossai@mail.utoronto.ca & vincentc.lee@mail.utoronto.ca
+
+***BEFORE STARTING ANYTHING:***
+1. Connect to DriClinic-1 (wireless connection)
+2. Turn off and disconnect the charger
+3. Turn the robot ON (there should be a blue light in front of robot that indicates its on)
+
+How to view odometry and map__________________________________________________________________________
+1. Bring robot to initial starting position when mapping
+2. in new terminal: $ sudo chmod a+rw /dev/ttyACM0
+3. $ roslaunch hokuyo_test my_robot_configuration.launch
+4. in the QT gui: connect ALL 4 ports (sensor numbers will fluctuate if robot is connected properly)
+5. in the QT gui: check off the boxes next to 'Start Publish', 'Start ReceiveCmd' & 'Display ROS Msg'
+6. Bring map.pgm and map.yaml into the hokuyo_exp folder
+6. in new terminal: $ rosrun map_server map_server map.yaml 
+7. in new terminal: $ roslaunch amcl amcl_diff.launch 
+8. in new terminal: $ rosrun rviz rviz
+9. Set 'Fixed Frame' under 'Global Options' frame to /odom
