@@ -15,4 +15,6 @@ How to view odometry and map____________________________________________________
 6. in new terminal: $ rosrun map_server map_server map.yaml 
 7. in new terminal: $ roslaunch amcl amcl_diff.launch 
 8. in new terminal: $ rosrun rviz rviz
-9. Set fixed frame to /odom
+9. go to 'Add'--> 'By display type' tab --> Map --> click 'OK'
+10. Set 'Topic' under 'Map' frame to /map
+9. Set 'Fixed Frame' under 'Global Options' to /odom
