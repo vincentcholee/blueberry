@@ -68,6 +68,7 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SMLINKS
    RangeArray.msg
    RobotPosition.msg
    MotorCmd.msg
+   P2pCmd.msg
    RobotSystemData.msg
    LaserDriveCmd.msg
    HeadCmd.msg

@@ -19,6 +19,8 @@
 #include <sensor_msgs/LaserScan.h>
 #include <nav_msgs/Odometry.h>
 #include <tf/transform_broadcaster.h>
+#include <geometry_msgs/Twist.h>
+#include <drrobot_clinicrobot/P2pCmd.h>
 //calvin end
 #include "../include/drrobot_clinicrobot/qnode.hpp"
 #include "../include/drrobot_clinicrobot/drrobotsensordata.hpp"
@@ -83,6 +85,8 @@ bool QNode::init() {
     //laser_scan_sub_ = n.subscribe<sensor_msgs::LaserScan>("scan", 1000, &QNode::laserScanUpdated);
     laser_scan_sub_ = n.subscribe<sensor_msgs::LaserScan>("scan", 1, boost::bind(&QNode::lasersensorReceived, this, _1));
     odom_pub_ = n.advertise<nav_msgs::Odometry>("drrobot_clinicrobot_odometry", 1);
+    geo_twist_sub_ = n.subscribe<geometry_msgs::Twist>("cmd_vel", 1, boost::bind(&QNode::navigationCmd, this, _1));
+    p2p_go_sub_ = n.subscribe<drrobot_clinicrobot::P2pCmd>("P2PNavigation", 1, boost::bind(&QNode::p2pnavrecieved, this, _1));
     //calvin end
 
 
@@ -329,26 +333,26 @@ void QNode::lasersensorReceived(const sensor_msgs::LaserScan::ConstPtr& scan)
 
 void QNode::publisherOdometry(RobotPositionData robotPositionData, RobotVelocity robotVelocity)
 {
-    tf::TransformBroadcaster odom_broadcaster;
+//    tf::TransformBroadcaster odom_broadcaster;
 
     //since all odometry is 6DOF we'll need a quaternion created from yaw
        geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(robotPositionData.robotHeading);
 
-       //first, we'll publish the transform over tf
-       geometry_msgs::TransformStamped odom_trans;
-       odom_trans.header.stamp = ros::Time::now();
-       odom_trans.header.frame_id = "odom";
-       odom_trans.child_frame_id = "base_link";
+//       //first, we'll publish the transform over tf
+//       geometry_msgs::TransformStamped odom_trans;
+//       odom_trans.header.stamp = ros::Time::now();
+//       odom_trans.header.frame_id = "odom";
+//       odom_trans.child_frame_id = "base_link";
 
-       odom_trans.transform.translation.x = robotPositionData.robotX;
-       odom_trans.transform.translation.y = robotPositionData.robotY;
-       odom_trans.transform.translation.z = 0.0;
-       odom_trans.transform.rotation = odom_quat;
+//       odom_trans.transform.translation.x = robotPositionData.robotX;
+//       odom_trans.transform.translation.y = robotPositionData.robotY;
+//       odom_trans.transform.translation.z = 0.0;
+//       odom_trans.transform.rotation = odom_quat;
 
-       //send the transform
-       tf::StampedTransform transform;
-       tf::transformStampedMsgToTF(odom_trans, transform);
-       odom_broadcaster.sendTransform(transform);
+//       //send the transform
+//       tf::StampedTransform transform;
+//       tf::transformStampedMsgToTF(odom_trans, transform);
+//       odom_broadcaster.sendTransform(transform);
 
        //next, we'll publish the odometry message over ROS
        nav_msgs::Odometry odom;
@@ -370,6 +374,36 @@ void QNode::publisherOdometry(RobotPositionData robotPositionData, RobotVelocity
        //publish the message
        odom_pub_.publish(odom);
 
+}
+
+void QNode::navigationCmd(const geometry_msgs::Twist::ConstPtr &twist)
+{
+    int cmdValue1;
+    int cmdValue2;
+    int cmdCtrl;
+
+    if (twist->angular.z != 0)
+    {
+        cmdValue1 = -twist->angular.z;
+        cmdValue2 = -twist->angular.z;
+        cmdCtrl = 1;
+        std::cout << "Ros received motor command." << std::endl;
+        emit wheelCmdUpdated(cmdValue1,cmdValue2,cmdCtrl);
+    }
+
+    if (twist->linear.x != 0)
+    {
+        cmdValue1 = twist->linear.x;
+        cmdValue2 = -twist->linear.x;
+        int cmdCtrl = 1;
+        std::cout << "Ros received motor command." << std::endl;
+        emit wheelCmdUpdated(cmdValue1,cmdValue2,cmdCtrl);
+    }
+}
+
+void QNode::p2pnavrecieved(const drrobot_clinicrobot::P2pCmd::ConstPtr &cmd)
+{
+    emit p2pCmdUpdated(cmd->TargetX, cmd->TargetY, cmd->TargetDir, cmd->ForwardSpeed, cmd->CAEnable, cmd->ReverseDrive);
 }
 
 //calvin end

@@ -44,6 +44,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/RangeArray.msg"
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/RobotPosition.msg"
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/MotorCmd.msg"
+    "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg"
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/RobotSystemData.msg"
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/LaserDriveCmd.msg"
     "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/HeadCmd.msg"

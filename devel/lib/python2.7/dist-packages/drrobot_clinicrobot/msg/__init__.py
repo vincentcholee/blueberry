@@ -2,6 +2,7 @@ from ._MotorInfoArray import *
 from ._PowerInfo import *
 from ._RobotPosition import *
 from ._MotorCmd import *
+from ._P2pCmd import *
 from ._IndoorGPS import *
 from ._RobotSystemData import *
 from ._Range import *

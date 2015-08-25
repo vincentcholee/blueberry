@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/drrobot_clinicrobot_generate_messages_py"
+  "/home/drrobot2/hokuyo_exp/devel/lib/python2.7/dist-packages/drrobot_clinicrobot/msg/_P2pCmd.py"
   "/home/drrobot2/hokuyo_exp/devel/lib/python2.7/dist-packages/drrobot_clinicrobot/msg/_Range.py"
   "/home/drrobot2/hokuyo_exp/devel/lib/python2.7/dist-packages/drrobot_clinicrobot/msg/_LaserDriveCmd.py"
   "/home/drrobot2/hokuyo_exp/devel/lib/python2.7/dist-packages/drrobot_clinicrobot/msg/_PowerInfo.py"

@@ -9,7 +9,7 @@ class SetTargetPointRequest
     public:
             double TargetX;
             double TargetY;
-            double TargetDir;
+            double TargetDir; //in degrees
             int StopTime;
             double ForwardSpeed;
             bool Forgetable;

@@ -1,0 +1,9 @@
+# P2P go message
+
+float32 TargetX
+float32 TargetY
+float32 TargetDir     #in degrees
+float32 ForwardSpeed
+uint8 CAEnable        # 0 is collision avoidance disabled, 1 is enabled
+uint8 ReverseDrive    # 0 is reverse drive disabled, 1 is enabled
+

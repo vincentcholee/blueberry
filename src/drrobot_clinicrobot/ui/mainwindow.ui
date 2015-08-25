@@ -65,7 +65,7 @@
       <item row="0" column="1">
        <widget class="QLineEdit" name="lineEditNetworkIP1">
         <property name="text">
-         <string>192.168.0.60</string>
+         <string>192.168.0.65</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -153,7 +153,7 @@
       <item row="1" column="1">
        <widget class="QLineEdit" name="lineEditNetworkIP2">
         <property name="text">
-         <string>192.168.0.61</string>
+         <string>192.168.0.66</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1561,6 +1561,19 @@
      </property>
      <property name="text">
       <string>Reset</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBoxKeyboardCtr">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>100</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Keyboard Control</string>
      </property>
     </widget>
    </widget>

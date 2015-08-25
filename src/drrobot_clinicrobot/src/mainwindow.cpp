@@ -180,6 +180,7 @@ void MainWindow::setROSReceive()
         QObject::connect(&qnode, SIGNAL(laserCmdUpdated(double,int)), this, SLOT(laserCmdSend(double,int)));
         //calvin added this       
         QObject::connect(&qnode, SIGNAL(laserScanUpdated(double)),this, SLOT(laserScanEffected(double)));
+        QObject::connect(&qnode, SIGNAL(p2pCmdUpdated(double,double,double,double,int,int)), this, SLOT(p2pCmdSend(double,double,double,double,int,int)));
         //calvin end
     }
     else{
@@ -188,6 +189,7 @@ void MainWindow::setROSReceive()
         QObject::disconnect(&qnode, SIGNAL(laserCmdUpdated(double,int)), this, SLOT(laserCmdSend(double,int)));
         //calvin added this
         QObject::disconnect(&qnode, SIGNAL(laserScanUpdated(double)), this, SLOT(laserScanEffected(double)));
+        QObject::disconnect(&qnode, SIGNAL(p2pCmdUpdated(double,double,double,double,int,int)), this, SLOT(p2pCmdSend(double, double, double,double,int, int)));
         //calvin end
     }
 
@@ -315,6 +317,9 @@ void MainWindow::iniSystemData()
     inChargeCnt = 0;
     exitChargeFlag = false;
     exitChargeStep = 0;
+    //calvin added this for keyboard teleop
+    Keycount = 1;
+    //calvin ends
 
     for (int i = 0; i < IR_NUM; i++){
         irData[i].detectDis = 0;
@@ -2256,7 +2261,7 @@ void MainWindow::patrolStart()
         // Load xml file as raw data
         QString homePath = QDir::homePath();
 
-        QFile f(homePath + "/DrRobotClinicPathFile/patrol2.xml"); //changed from patrol.xml (patrol2.xml made by Vincent)
+        QFile f(homePath + "/DrRobotClinicPathFile/patrol.xml");
         if (!f.open(QIODevice::ReadOnly ))
         {
             return;
@@ -2821,8 +2826,7 @@ bool MainWindow::event(QEvent *event)
    if (event->type() == QEvent::KeyPress)
    {
        QKeyEvent *ke = static_cast<QKeyEvent*>(event);
-       int a = ke->key();
-       if (ke->key() == Qt::Key_T)
+       if (ke->key() == Qt::Key_H && Keycount ==1)
        {
            double anglePos = 0;
            while (anglePos <= 40)
@@ -2833,11 +2837,11 @@ bool MainWindow::event(QEvent *event)
                // here we use position time control
                robotMotorTimeControl(ctrlMode,3,cmd,time);
                anglePos += 1;
-               a = ke->key();
            }
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_V)
+       else if (ke->key() == Qt::Key_J && Keycount ==1)
        {
            double anglePos = 0;
            while (anglePos <= 40)
@@ -2848,11 +2852,12 @@ bool MainWindow::event(QEvent *event)
                // here we use position time control
                robotMotorTimeControl(ctrlMode,3,-cmd,time);
                anglePos += 1;
-               a = ke->key();
            }
+           Keycount +=1;
            return true;
+
        }
-       else if (ke->key() == Qt::Key_H)
+       else if (ke->key() == Qt::Key_G && Keycount ==1)
        {
            double anglePos = 0;
            while(anglePos <= 90)
@@ -2864,10 +2869,11 @@ bool MainWindow::event(QEvent *event)
                robotMotorTimeControl(ctrlMode,4,cmd,time);
                anglePos  += 1;
            }
+           Keycount +=1;
            return true;
 
        }
-       else if (ke->key() == Qt::Key_D)
+       else if (ke->key() == Qt::Key_F && Keycount ==1)
        {
            double anglePos = 0;
            while(anglePos <= 90)
@@ -2879,33 +2885,85 @@ bool MainWindow::event(QEvent *event)
                robotMotorTimeControl(ctrlMode,4,-cmd,time);
                anglePos  += 1;
            }
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_Left)
+       else if (ke->key() == Qt::Key_Left && Keycount ==1)
        {
            sendLeftTurnCmd();
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_Right)
+       else if (ke->key() == Qt::Key_Right && Keycount == 1)
        {
            sendRightTurnCmd();
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_Up)
+       else if (ke->key() == Qt::Key_Up && Keycount ==1)
        {
            sendForwardCmd();
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_Down)
+       else if (ke->key() == Qt::Key_Down && Keycount == 1)
        {
            sendBackwardCmd();
+           Keycount +=1;
            return true;
        }
-       else if (ke->key() == Qt::Key_Enter)
+       else if (ke->key() == Qt::Key_K && Keycount == 1)
+       {
+           ui->checkBoxKeyboardCtr->click();
+           return true;
+           Keycount += 1;
+       }
+       else if ((ke->key() == Qt::Key_Left || ke->key() == Qt::Key_Right || ke->key() == Qt::Key_Up || ke->key() == Qt::Key_Down) && Keycount ==2)
        {
            sendStopCmd();
+           Keycount =1;
            return true;
        }
+       else if ((ke->key() == Qt::Key_H || ke->key() == Qt::Key_J || ke->key() == Qt::Key_G || ke->key() == Qt::Key_F) && Keycount ==2)
+       {
+           sendHeadStopCmd();
+           Keycount =1;
+           return true;
+       }
+       else if (ke->key() == Qt::Key_K && Keycount == 2)
+       {
+           ui->checkBoxKeyboardCtr->click();
+           keyboardMotionCtrl(false);
+           Keycount =1;
+           return true;
+       }
+       else if (ke->key() == Qt::Key_R)
+       {
+           resetHeadPan();
+           resetHeadTilt();
+           Keycount=1;
+           return true;
+       }
+       else if(ke->key() == Qt::Key_P)
+       {
+           ui->checkBoxStartROSPublish->click();
+           ui->checkBoxStartROSReceive->click();
+           return true;
+       }
+       else if(ke->key() == Qt::Key_O)
+       {
+           ui->pushButtonMotionConnect->click();
+           ui->pushButtonIndoorGPSConnect->click();
+           ui->pushButtonChargerConnect->click();
+           ui->pushButtonLaserConnect->click();
+           return true;
+       }
+       else if(ke->key() == Qt::Key_L)
+       {
+           ui->pushButtonPatrol->click();
+           return true;
+       }
+
        else
            return QMainWindow::event(event);
    }
@@ -2933,6 +2991,128 @@ void MainWindow::laserScanEffected(double a)
    // drrobotSensorMapBuilder.UpdateLaserSensorInfo(laserSensorData);
 
 }
+
+void MainWindow::p2pCmdSend(double a, double b, double c, double d, int e, int f)
+{
+    setPoint.TargetX = a;
+    setPoint.TargetY = b;
+    setPoint.TargetDir = c /180 * M_PI;
+    setPoint.StopTime = 2;
+    if (d > MAXSPEED) setPoint.ForwardSpeed = MAXSPEED;
+    else  setPoint.ForwardSpeed = d;
+    setPoint.Forgetable = false;
+    setPoint.NonStop = false;
+    setPoint.FinalPosture = true;
+    setPoint.TargetTime = 200;
+    setPoint.TargetTolerance = 0.05;
+    setPoint.MaxTurnSpeed = 1;
+
+    if (e == 1){
+        setPoint.CAEnable = true;
+    }else{
+        setPoint.CAEnable = false;
+    }
+    if (f == 1){
+        setPoint.ReverseDrive = true;
+    }else{
+        setPoint.ReverseDrive = false;
+    }
+    setPoint.TargetDirTolerance = 3 * M_PI/180;
+    drrobotp2pSpeedDrive.SetTargetPosition(setPoint);
+    drrobotp2pSpeedDrive.SendP2PCmd(P2PCtrlCmdP2PGo);
+    p2pStatus = P2PGo;
+}
+
+//void MainWindow::keyPressEvent(QKeyEvent *ke)
+//{
+//    if (ke->key() == Qt::Key_T)
+//    {
+//        double anglePos = 0;
+//        while (anglePos <= 40)
+//        {
+//            int cmd = anglePos * HEAD_TILT_CIRCLE_CNT /360;
+//            int time = ui->lineEditHeadCtrlTime->text().toInt();
+//            ctrlMode = MOTORPOSCTRL;
+//            // here we use position time control
+//            robotMotorTimeControl(ctrlMode,3,cmd,time);
+//            anglePos += 1;
+//        }
+//    }
+//    else if (ke->key() == Qt::Key_V)
+//    {
+//        double anglePos = 0;
+//        while (anglePos <= 40)
+//        {
+//            int cmd = anglePos * HEAD_TILT_CIRCLE_CNT /360;
+//            int time = ui->lineEditHeadCtrlTime->text().toInt();
+//            ctrlMode = MOTORPOSCTRL;
+//            // here we use position time control
+//            robotMotorTimeControl(ctrlMode,3,-cmd,time);
+//            anglePos += 1;
+//        }
+
+//    }
+//    else if (ke->key() == Qt::Key_H)
+//    {
+//        double anglePos = 0;
+//        while(anglePos <= 90)
+//        {
+//            int cmd = anglePos * HEAD_PAN_CIRCLE_CNT /360;
+//            int time = ui->lineEditHeadCtrlTime->text().toInt();
+//            ctrlMode = MOTORPOSCTRL;
+//            // here we use position time control
+//            robotMotorTimeControl(ctrlMode,4,cmd,time);
+//            anglePos  += 1;
+//        }
+
+//    }
+//    else if (ke->key() == Qt::Key_D)
+//    {
+//        double anglePos = 0;
+//        while(anglePos <= 90)
+//        {
+//            int cmd = anglePos * HEAD_PAN_CIRCLE_CNT /360;
+//            int time = ui->lineEditHeadCtrlTime->text().toInt();
+//            ctrlMode = MOTORPOSCTRL;
+//            // here we use position time control
+//            robotMotorTimeControl(ctrlMode,4,-cmd,time);
+//            anglePos  += 1;
+//        }
+//    }
+//    else if (ke->key() == Qt::Key_Left)
+//    {
+//        sendLeftTurnCmd();
+//    }
+//    else if (ke->key() == Qt::Key_Right)
+//    {
+//        sendRightTurnCmd();
+//    }
+//    else if (ke->key() == Qt::Key_Up)
+//    {
+//        sendForwardCmd();
+//    }
+//    else if (ke->key() == Qt::Key_Down)
+//    {
+//        sendBackwardCmd();
+//    }
+//    else
+//        QMainWindow::keyPressEvent(ke);
+//}
+
+//void MainWindow::keyReleaseEvent(QKeyEvent *ke)
+//{
+//    if (ke->key() == Qt::Key_Left || ke->key() == Qt::Key_Right || ke->key() == Qt::Key_Up || ke->key() == Qt::Key_Down)
+//    {
+//        sendStopCmd();
+//    }
+//    else if (ke->key() == Qt::Key_T || ke->key() == Qt::Key_V || ke->key() == Qt::Key_H || ke->key() == Qt::Key_D)
+//    {
+//        sendHeadStopCmd();
+//    }
+//    else
+//        QMainWindow::keyReleaseEvent(ke);
+//}
+
 
 //calvin ends
 

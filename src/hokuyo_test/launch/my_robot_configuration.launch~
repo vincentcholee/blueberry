@@ -24,6 +24,6 @@
 	<include file="$(find urdf_tutorial)/launch/blueberry_model.launch" />
 
 <!-- drrobot_clinicrobot node -->
-	<!-- <node pkg="drrobot_clinicrobot" name="drrobot_clinicrobot_node" type="drrobot_clinicrobot_node" output="screen"/> -->
+	<node pkg="drrobot_clinicrobot" name="drrobot_clinicrobot_node" type="drrobot_clinicrobot_node" output="screen"/>
 
 </launch>

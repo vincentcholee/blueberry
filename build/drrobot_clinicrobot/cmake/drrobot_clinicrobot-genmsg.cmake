@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "drrobot_clinicrobot: 13 messages, 0 services")
+message(STATUS "drrobot_clinicrobot: 14 messages, 0 services")
 
 set(MSG_I_FLAGS "-Idrrobot_clinicrobot:/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
 
@@ -14,6 +14,11 @@ add_custom_target(drrobot_clinicrobot_generate_messages ALL)
 # verify that message/service dependencies have not changed since configure
 
 
+
+get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg" NAME_WE)
+add_custom_target(_drrobot_clinicrobot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drrobot_clinicrobot" "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg" ""
+)
 
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/LaserDriveCmd.msg" NAME_WE)
 add_custom_target(_drrobot_clinicrobot_generate_messages_check_deps_${_filename}
@@ -86,6 +91,12 @@ add_custom_target(_drrobot_clinicrobot_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(drrobot_clinicrobot
+  "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drrobot_clinicrobot
+)
 _generate_msg_cpp(drrobot_clinicrobot
   "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/Range.msg"
   "${MSG_I_FLAGS}"
@@ -179,6 +190,8 @@ add_custom_target(drrobot_clinicrobot_generate_messages_cpp
 add_dependencies(drrobot_clinicrobot_generate_messages drrobot_clinicrobot_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg" NAME_WE)
+add_dependencies(drrobot_clinicrobot_generate_messages_cpp _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/LaserDriveCmd.msg" NAME_WE)
 add_dependencies(drrobot_clinicrobot_generate_messages_cpp _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/PowerInfo.msg" NAME_WE)
@@ -215,6 +228,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drrobot_clinicrobot_generate_messag
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(drrobot_clinicrobot
+  "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drrobot_clinicrobot
+)
 _generate_msg_lisp(drrobot_clinicrobot
   "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/Range.msg"
   "${MSG_I_FLAGS}"
@@ -308,6 +327,8 @@ add_custom_target(drrobot_clinicrobot_generate_messages_lisp
 add_dependencies(drrobot_clinicrobot_generate_messages drrobot_clinicrobot_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg" NAME_WE)
+add_dependencies(drrobot_clinicrobot_generate_messages_lisp _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/LaserDriveCmd.msg" NAME_WE)
 add_dependencies(drrobot_clinicrobot_generate_messages_lisp _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/PowerInfo.msg" NAME_WE)
@@ -344,6 +365,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drrobot_clinicrobot_generate_messag
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(drrobot_clinicrobot
+  "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drrobot_clinicrobot
+)
 _generate_msg_py(drrobot_clinicrobot
   "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/Range.msg"
   "${MSG_I_FLAGS}"
@@ -437,6 +464,8 @@ add_custom_target(drrobot_clinicrobot_generate_messages_py
 add_dependencies(drrobot_clinicrobot_generate_messages drrobot_clinicrobot_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/P2pCmd.msg" NAME_WE)
+add_dependencies(drrobot_clinicrobot_generate_messages_py _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/LaserDriveCmd.msg" NAME_WE)
 add_dependencies(drrobot_clinicrobot_generate_messages_py _drrobot_clinicrobot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/drrobot2/hokuyo_exp/src/drrobot_clinicrobot/msg/PowerInfo.msg" NAME_WE)

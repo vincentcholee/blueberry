@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/drrobot_clinicrobot_generate_messages_cpp"
+  "/home/drrobot2/hokuyo_exp/devel/include/drrobot_clinicrobot/P2pCmd.h"
   "/home/drrobot2/hokuyo_exp/devel/include/drrobot_clinicrobot/Range.h"
   "/home/drrobot2/hokuyo_exp/devel/include/drrobot_clinicrobot/LaserDriveCmd.h"
   "/home/drrobot2/hokuyo_exp/devel/include/drrobot_clinicrobot/PowerInfo.h"

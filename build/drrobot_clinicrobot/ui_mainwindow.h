@@ -144,6 +144,7 @@ public:
     QLineEdit *lineEditHeadCtrlTime;
     QPushButton *pushButtonHeadTiltHome;
     QPushButton *pushButtonHeadPanHome;
+    QCheckBox *checkBoxKeyboardCtr;
     QGroupBox *groupBoxIndoorGPS;
     QLabel *label_43;
     QLabel *labelIndoorGPSMsg;
@@ -985,6 +986,9 @@ public:
         pushButtonHeadPanHome = new QPushButton(groupBoxMotorSensors);
         pushButtonHeadPanHome->setObjectName(QString::fromUtf8("pushButtonHeadPanHome"));
         pushButtonHeadPanHome->setGeometry(QRect(750, 90, 51, 27));
+        checkBoxKeyboardCtr = new QCheckBox(groupBoxMotorSensors);
+        checkBoxKeyboardCtr->setObjectName(QString::fromUtf8("checkBoxKeyboardCtr"));
+        checkBoxKeyboardCtr->setGeometry(QRect(430, 100, 151, 22));
         groupBoxIndoorGPS = new QGroupBox(centralWidget);
         groupBoxIndoorGPS->setObjectName(QString::fromUtf8("groupBoxIndoorGPS"));
         groupBoxIndoorGPS->setGeometry(QRect(10, 360, 401, 151));
@@ -1444,7 +1448,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Clinic Robot Control Center", 0, QApplication::UnicodeUTF8));
         groupBoxCommunication->setTitle(QApplication::translate("MainWindow", "Communication Status", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Network-I:", 0, QApplication::UnicodeUTF8));
-        lineEditNetworkIP1->setText(QApplication::translate("MainWindow", "192.168.0.60", 0, QApplication::UnicodeUTF8));
+        lineEditNetworkIP1->setText(QApplication::translate("MainWindow", "192.168.0.65", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "Motion Control Port:", 0, QApplication::UnicodeUTF8));
         lineEditMotionPort->setText(QApplication::translate("MainWindow", "10001", 0, QApplication::UnicodeUTF8));
         pushButtonMotionConnect->setText(QApplication::translate("MainWindow", "Connect", 0, QApplication::UnicodeUTF8));
@@ -1454,7 +1458,7 @@ public:
         pushButtonChargerConnect->setText(QApplication::translate("MainWindow", "Connect", 0, QApplication::UnicodeUTF8));
         labelChargerPortState->setText(QApplication::translate("MainWindow", "T", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "Network-II:", 0, QApplication::UnicodeUTF8));
-        lineEditNetworkIP2->setText(QApplication::translate("MainWindow", "192.168.0.61", 0, QApplication::UnicodeUTF8));
+        lineEditNetworkIP2->setText(QApplication::translate("MainWindow", "192.168.0.66", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("MainWindow", "Laser Control Port:", 0, QApplication::UnicodeUTF8));
         lineEditLaserPort->setText(QApplication::translate("MainWindow", "10001", 0, QApplication::UnicodeUTF8));
         pushButtonLaserConnect->setText(QApplication::translate("MainWindow", "Connect", 0, QApplication::UnicodeUTF8));
@@ -1546,6 +1550,7 @@ public:
         lineEditHeadCtrlTime->setText(QApplication::translate("MainWindow", "1500", 0, QApplication::UnicodeUTF8));
         pushButtonHeadTiltHome->setText(QApplication::translate("MainWindow", "Reset", 0, QApplication::UnicodeUTF8));
         pushButtonHeadPanHome->setText(QApplication::translate("MainWindow", "Reset", 0, QApplication::UnicodeUTF8));
+        checkBoxKeyboardCtr->setText(QApplication::translate("MainWindow", "Keyboard Control", 0, QApplication::UnicodeUTF8));
         groupBoxIndoorGPS->setTitle(QApplication::translate("MainWindow", "Indoor GPS", 0, QApplication::UnicodeUTF8));
         label_43->setText(QApplication::translate("MainWindow", "Rev Message:", 0, QApplication::UnicodeUTF8));
         labelIndoorGPSMsg->setText(QString());

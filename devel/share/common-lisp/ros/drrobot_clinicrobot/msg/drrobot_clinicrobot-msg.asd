@@ -19,6 +19,8 @@
     (:file "_package_LaserDriveData" :depends-on ("_package"))
     (:file "RobotPosition" :depends-on ("_package_RobotPosition"))
     (:file "_package_RobotPosition" :depends-on ("_package"))
+    (:file "P2pCmd" :depends-on ("_package_P2pCmd"))
+    (:file "_package_P2pCmd" :depends-on ("_package"))
     (:file "MotorInfoArray" :depends-on ("_package_MotorInfoArray"))
     (:file "_package_MotorInfoArray" :depends-on ("_package"))
     (:file "MotorInfo" :depends-on ("_package_MotorInfo"))

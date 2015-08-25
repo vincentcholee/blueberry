@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/drrobot_clinicrobot_generate_messages_lisp"
+  "/home/drrobot2/hokuyo_exp/devel/share/common-lisp/ros/drrobot_clinicrobot/msg/P2pCmd.lisp"
   "/home/drrobot2/hokuyo_exp/devel/share/common-lisp/ros/drrobot_clinicrobot/msg/Range.lisp"
   "/home/drrobot2/hokuyo_exp/devel/share/common-lisp/ros/drrobot_clinicrobot/msg/LaserDriveCmd.lisp"
   "/home/drrobot2/hokuyo_exp/devel/share/common-lisp/ros/drrobot_clinicrobot/msg/PowerInfo.lisp"
